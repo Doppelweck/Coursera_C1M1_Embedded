@@ -9,13 +9,17 @@
  *
  *****************************************************************************/
 /**
- * @file <Add File Name> 
- * @brief <Add Brief Description Here >
+ * @file stats.c
+ * @brief Application that performs statistical analytics on a dataset.
  *
- * <Add Extended Description Here>
+ * This programm performs statistical analytics on a dataset. It calculates the 
+ * mean value, median, minimum value and maximum value of a given array of
+ * data and length. All Results will be printed to the screen. 
+ * This programm is part of the week 1 Application in the "Introduction to 
+ * Emebdded Systems Software and Development Enviromant" Coursera course.
  *
- * @author <Add FirsName LastName>
- * @date <Add date >
+ * @author Sebastian Friedrich
+ * @date 17.Aug.2022
  *
  */
 
@@ -38,6 +42,33 @@ void main() {
   /* Other Variable Declarations Go Here */
   /* Statistics and Printing Functions Go Here */
 
-}
+}//END main
 
-/* Add other Implementation File Code Here */
+
+void print_statistics(){
+    
+}//END print_statistics()
+
+void print_array(char * data, int size){
+    
+}//END print_array()
+
+char find_median(char * data, int size){
+    
+}//END find_median()
+
+char find_mean(char * data, int size){
+    
+}//END find_mean()
+
+char find_maximum(char * data, int size){
+    
+}//END find_maximum()
+
+char find_minimum(char * data, int size){
+    
+}//END find_minimum()
+
+void sort_array(char * data, int size){
+    
+}//END sort_array()

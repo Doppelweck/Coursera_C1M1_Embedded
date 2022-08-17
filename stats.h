@@ -9,32 +9,114 @@
  *
  *****************************************************************************/
 /**
- * @file <Add File Name> 
- * @brief <Add Brief Description Here >
+ * @file stats.h
+ * @brief Header file for functions declarations and definitions to perform 
+ * statistical analytics on datasets. 
  *
- * <Add Extended Description Here>
+ * Contains all function declarations and macro definitions for the Week 1 
+ * Application in the "Introduction to Emebdded Systems Software and 
+ * Development Enviromant" Coursera course. These functions perform statistical
+ * analytics on a given array of data and lenght and print the results.    
  *
- * @author <Add FirsName LastName>
- * @date <Add date >
+ * @author Sebastian Friedrich
+ * @date 17.Aug.2022
  *
  */
 #ifndef __STATS_H__
 #define __STATS_H__
 
-/* Add Your Declarations and Function Comments here */ 
+/**
+ * @brief  Prints the statistics of an data set to the screen 
+ *
+ * This function prints the statistics of an array including minimum, maximum,
+ * mean, and median to the screen using printf. The print order will be:
+ *      -minimum
+ *      -maximum
+ *      -mean
+ *      -median
+ * 
+ * @return : none
+ */
+void print_statistics();
 
 /**
- * @brief <Add Brief Description of Function Here>
+ * @brief  Prints the array to the screen
  *
- * <Add Extended Description Here>
+ * Prints a given array of data and lenght to the screen using printf.
  *
- * @param <Add InputName> <add description here>
- * @param <Add InputName> <add description here>
- * @param <Add InputName> <add description here>
- * @param <Add InputName> <add description here>
+ * @param char * data : Pointer to data set
+ * @param int size    : No. of elemnts in the data set 
  *
- * @return <Add Return Informaiton here>
  */
+void print_array(char * data, int size);
 
+/**
+ * @brief  Finde the median of a data set
+ *
+ * This function calculates the median of a given array of data and lenght. If 
+ * the number of elemts are even, then the median will be the average of two 
+ * numbers in the middle of the sorted array. If the number of elements are 
+ * odd, then the median will be the middle element of the sorted array. The 
+ * value of the median will always be rounded down to the nearest integer. 
+ *
+ * @param char * data : Pointer to data set
+ * @param int size    : No. of elemnts in the data set 
+ *
+ * @return : Median of given array rounded down to the nearest integer
+ */
+char find_median(char * data, int size);
+
+/**
+ * @brief  Finde the mean of a data set
+ *
+ * This function calculates the mean value of a given array of data and lenght.   
+ * The value of the mean will always be rounded down to the nearest integer.
+ *
+ * @param char * data : Pointer to data set
+ * @param int size    : No. of elemnts in the data set 
+ *
+ * @return : Mean of given array rounded down to the nearest integer
+ */
+char find_mean(char * data, int size);
+
+/**
+ * @brief  Finde the maximum value of a data set
+ *
+ * This function calculates the maximum value of a given array of data and   
+ * lenght. The maximum value will always be rounded down to the nearest 
+ * integer.
+ *
+ * @param char * data : Pointer to data set
+ * @param int size    : No. of elemnts in the data set 
+ *
+ * @return : Maximum value of given array rounded down to the nearest integer
+ */
+char find_maximum(char * data, int size);
+
+/**
+ * @brief  Finde the minimum value of a data set
+ *
+ * This function calculates the minimum value of a given array of data and 
+ * lenght. The minimum value will always be rounded down to the nearest 
+ * integer.
+ *
+ * @param char * data : Pointer to data set
+ * @param int size    : No. of elemnts in the data set 
+ *
+ * @return : Minimum value of given array rounded down to the nearest integer
+ */
+char find_minimum(char * data, int size);
+
+/**
+ * @brief  Sorts the array from largest to smallest
+ *
+ * This function sorts a given array from largest to smallest using the 
+ * selection sort algorithm. 
+ *
+ * @param char * data : Pointer to data set
+ * @param int size    : No. of elemnts in the data set 
+ *
+ */
+void sort_array(char * data, int size);
 
 #endif /* __STATS_H__ */
