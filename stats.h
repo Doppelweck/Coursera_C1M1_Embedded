@@ -64,7 +64,7 @@ void print_array(unsigned char * data, int size);
  *
  * @return : Median of given array rounded down to the nearest integer
  */
-char find_median(unsigned char * data, int size);
+unsigned char find_median(unsigned char * data, int size);
 
 /**
  * @brief  Finde the mean of a data set
@@ -77,7 +77,7 @@ char find_median(unsigned char * data, int size);
  *
  * @return : Mean of given array rounded down to the nearest integer
  */
-char find_mean(unsigned char * data, int size);
+unsigned char find_mean(unsigned char * data, int size);
 
 /**
  * @brief  Finde the maximum value of a data set
@@ -91,7 +91,7 @@ char find_mean(unsigned char * data, int size);
  *
  * @return : Maximum value of given array rounded down to the nearest integer
  */
-char find_maximum(unsigned char * data, int size);
+unsigned char find_maximum(unsigned char * data, int size);
 
 /**
  * @brief  Finde the minimum value of a data set
@@ -105,7 +105,7 @@ char find_maximum(unsigned char * data, int size);
  *
  * @return : Minimum value of given array rounded down to the nearest integer
  */
-char find_minimum(unsigned char * data, int size);
+unsigned char find_minimum(unsigned char * data, int size);
 
 /**
  * @brief  Sorts the array from largest to smallest
