@@ -39,13 +39,12 @@ void main() {
                               201,   6,  12,  60,   8,   2,   5,  67,
                                 7,  87, 250, 230,  99,   3, 100,  90};
 
-  unsigned char min, max, average, median;
-
-
-  min = find_minimum(test, 40);
-  printf ("Min = %d ", min);
-
-
+  unsigned char min, max, mean, median;
+  
+  mean = find_mean( test, SIZE );
+  
+  printf( "Mean = %d", mean );
+  
 }//END main
 
 
@@ -57,15 +56,22 @@ void print_array(unsigned char * data, int size){
     
 }//END print_array()
 
-char find_median(unsigned char * data, int size){
+unsigned char find_median(unsigned char * data, int size){
     
 }//END find_median()
 
-char find_mean(unsigned char * data, int size){
+unsigned char find_mean(unsigned char * data, int size){
+    
+    int sum = 0;
+    for ( int i = 0 ; i < size ; i++ ){
+        sum = sum + data[i];
+    }
+    
+    return (unsigned char)( sum / size );
     
 }//END find_mean()
 
-char find_maximum(unsigned char * data, int size){
+unsigned char find_maximum(unsigned char * data, int size){
     
     char maxValue = data[0]; //Init maxValue
 
@@ -78,12 +84,11 @@ char find_maximum(unsigned char * data, int size){
     
 }//END find_maximum()
 
-char find_minimum(unsigned char * data, int size){
+unsigned char find_minimum(unsigned char * data, int size){
     
     unsigned char minValue = data[0]; //Init maxValue
 
     for( int i = 1 ; i < size ; i++ ){
-        printf ("Array = %d ", data[i]);
         if( minValue > data[i] ) 
             minValue = data[i]; //Update maxValue
     } //END for()
