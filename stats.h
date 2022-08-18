@@ -48,7 +48,7 @@ void print_statistics();
  * @param int size    : No. of elemnts in the data set 
  *
  */
-void print_array(char * data, int size);
+void print_array(unsigned char * data, int size);
 
 /**
  * @brief  Finde the median of a data set
@@ -64,7 +64,7 @@ void print_array(char * data, int size);
  *
  * @return : Median of given array rounded down to the nearest integer
  */
-char find_median(char * data, int size);
+char find_median(unsigned char * data, int size);
 
 /**
  * @brief  Finde the mean of a data set
@@ -77,7 +77,7 @@ char find_median(char * data, int size);
  *
  * @return : Mean of given array rounded down to the nearest integer
  */
-char find_mean(char * data, int size);
+char find_mean(unsigned char * data, int size);
 
 /**
  * @brief  Finde the maximum value of a data set
@@ -91,7 +91,7 @@ char find_mean(char * data, int size);
  *
  * @return : Maximum value of given array rounded down to the nearest integer
  */
-char find_maximum(char * data, int size);
+char find_maximum(unsigned char * data, int size);
 
 /**
  * @brief  Finde the minimum value of a data set
@@ -105,7 +105,7 @@ char find_maximum(char * data, int size);
  *
  * @return : Minimum value of given array rounded down to the nearest integer
  */
-char find_minimum(char * data, int size);
+char find_minimum(unsigned char * data, int size);
 
 /**
  * @brief  Sorts the array from largest to smallest
@@ -117,6 +117,6 @@ char find_minimum(char * data, int size);
  * @param int size    : No. of elemnts in the data set 
  *
  */
-void sort_array(char * data, int size);
+void sort_array(unsigned char * data, int size);
 
 #endif /* __STATS_H__ */
