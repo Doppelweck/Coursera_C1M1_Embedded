@@ -40,10 +40,15 @@ void main() {
                                 7,  87, 250, 230,  99,   3, 100,  90};
 
   unsigned char min, max, mean, median;
+  //unsigned char * Data = &test;	
   
-  mean = find_mean( test, SIZE );
+  mean = find_mean(test, SIZE );
   
-  printf( "Mean = %d", mean );
+  print_array(test , SIZE);
+  
+  sort_array(test ,  SIZE);
+  
+  print_array(test , SIZE);
   
 }//END main
 
@@ -53,6 +58,19 @@ void print_statistics(){
 }//END print_statistics()
 
 void print_array(unsigned char * data, int size){
+    
+    int temp = 0;
+    for( int i = 0 ; i < size ; i=i+8 ){
+        temp = temp +1;
+        if(temp == 3)
+            printf("Data = |%.3d %03d %03d %03d %03d %03d %03d %03d |\n"
+                ,data[i],data[i+1],data[i+2],data[i+3],data[i+4],data[i+5]
+                ,data[i+6],data[i+7] );
+            
+        printf("       |%.3d %03d %03d %03d %03d %03d %03d %03d |\n"
+            ,data[i],data[i+1],data[i+2],data[i+3],data[i+4],data[i+5]
+            ,data[i+6],data[i+7] );
+    }
     
 }//END print_array()
 
@@ -89,8 +107,9 @@ unsigned char find_minimum(unsigned char * data, int size){
     unsigned char minValue = data[0]; //Init maxValue
 
     for( int i = 1 ; i < size ; i++ ){
-        if( minValue > data[i] ) 
+        if( minValue > data[i] ){ 
             minValue = data[i]; //Update maxValue
+        }
     } //END for()
     
     return minValue;
@@ -98,5 +117,27 @@ unsigned char find_minimum(unsigned char * data, int size){
 }//END find_minimum()
 
 void sort_array(unsigned char * data, int size){
+    
+    unsigned char i, j, max_idx;
+    unsigned char ptr;
+    
+    for(i = 0; i < size; i++){
+        // Find the index of maximum element in  array
+        max_idx = i; // Init max index to first element in array
+        for( j = i+1 ; j < size; j++ ){
+          if( data[j] > data[max_idx] ){
+            max_idx = j;
+          }
+        }// END inner for
+        
+        // Swap the found maximum element with the first element
+        if(max_idx != i){
+            ptr = data[i]; 
+            data[i] = data[max_idx];
+            data[max_idx] = ptr; 
+        }
+            
+    }// END outer for
+    
     
 }//END sort_array()
