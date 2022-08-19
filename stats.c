@@ -26,6 +26,7 @@
 
 
 #include <stdio.h>
+#include <math.h>
 #include "stats.h"
 
 /* Size of the Data Set */
@@ -40,15 +41,11 @@ void main() {
                                 7,  87, 250, 230,  99,   3, 100,  90};
 
   unsigned char min, max, mean, median;
-  //unsigned char * Data = &test;	
   
   mean = find_mean(test, SIZE );
   
-  print_array(test , SIZE);
+  median = find_median(test, SIZE);
   
-  sort_array(test ,  SIZE);
-  
-  print_array(test , SIZE);
   
 }//END main
 
@@ -62,19 +59,28 @@ void print_array(unsigned char * data, int size){
     int temp = 0;
     for( int i = 0 ; i < size ; i=i+8 ){
         temp = temp +1;
-        if(temp == 3)
-            printf("Data = |%.3d %03d %03d %03d %03d %03d %03d %03d |\n"
+        if(temp == 3){
+            printf("Data = |%0.3d %03d %03d %03d %03d %03d %03d %03d|\n"
                 ,data[i],data[i+1],data[i+2],data[i+3],data[i+4],data[i+5]
                 ,data[i+6],data[i+7] );
-            
-        printf("       |%.3d %03d %03d %03d %03d %03d %03d %03d |\n"
-            ,data[i],data[i+1],data[i+2],data[i+3],data[i+4],data[i+5]
-            ,data[i+6],data[i+7] );
-    }
+        }else{
+            printf("       |%0.3d %03d %03d %03d %03d %03d %03d %03d|\n"
+                ,data[i],data[i+1],data[i+2],data[i+3],data[i+4],data[i+5]
+                ,data[i+6],data[i+7] );
+        } //END if
+    } //END for
     
 }//END print_array()
 
 unsigned char find_median(unsigned char * data, int size){
+    
+    int rvalue = size%2; //Check if No. of Elemnts in data is even or not
+    
+    if(rvalue == 0){
+        return (int)(data[size/2-1]+data[size/2])/2;
+    }else{ //
+        return data[(int)size/2];
+    }
     
 }//END find_median()
 
