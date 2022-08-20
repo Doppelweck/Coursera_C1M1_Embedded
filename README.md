@@ -17,3 +17,9 @@
 ### The repository is organized in multiple folders:
 ###      demos -> Materials to help you follow along with videos
 ###      assessments -> Materials used for assessments
+
+# The files following files are edited by Sebastian Friedrich:
+# -stats.c
+# -stats.h
+# -stats.out
+
