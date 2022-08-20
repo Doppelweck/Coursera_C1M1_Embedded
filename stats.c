@@ -12,11 +12,11 @@
  * @file stats.c
  * @brief Application that performs statistical analytics on a dataset.
  *
- * This programm performs statistical analytics on a dataset. It calculates the 
+ * This program performs statistical analytics on a dataset. It calculates the 
  * mean value, median, minimum value and maximum value of a given array of
- * data and length. All Results will be printed to the screen. 
- * This programm is part of the week 1 Application in the "Introduction to 
- * Emebdded Systems Software and Development Enviromant" Coursera course.
+ * data and length. All results will be printed to the screen. 
+ * This program is part of the week 1 application in the "Introduction to 
+ * Emebdded Systems Software and Development Environment" Coursera course.
  *
  * @author Sebastian Friedrich
  * @date 17.Aug.2022
@@ -42,44 +42,73 @@ void main() {
 
   unsigned char min, max, mean, median;
   
+  /*Get all statistical properties of the array and print them out*/
+  
+  printf("Original data array : \n");
+  print_array(test,SIZE);
+  
+  sort_array(test,SIZE);
+  
+  printf("Sorted data array : \n");
+  print_array(test,SIZE);
+  
   mean = find_mean(test, SIZE );
   
   median = find_median(test, SIZE);
+  
+  min = find_minimum(test, SIZE);
+  
+  max = find_maximum(test,SIZE);
+  
+  print_statistics(min, max, mean, median);
   
   
 }//END main
 
 
-void print_statistics(){
+void print_statistics( unsigned char min,  unsigned char max,  
+    unsigned char mean,  unsigned char median){
     
+    printf("Statistical properties of data array : \n");
+    printf("\n");
+    printf("Minimum Value : %d \n", min);
+    printf("Maximum Value : %d \n", max);
+    printf("Mean Value    : %d \n", mean);
+    printf("Median Value  : %d \n", median);
+    printf("\n");
+
 }//END print_statistics()
 
 void print_array(unsigned char * data, int size){
+    
+    printf("\n");
     
     int temp = 0;
     for( int i = 0 ; i < size ; i=i+8 ){
         temp = temp +1;
         if(temp == 3){
-            printf("Data = |%0.3d %03d %03d %03d %03d %03d %03d %03d|\n"
+            printf("Data = |%03d %03d %03d %03d %03d %03d %03d %03d|\n"
                 ,data[i],data[i+1],data[i+2],data[i+3],data[i+4],data[i+5]
                 ,data[i+6],data[i+7] );
         }else{
-            printf("       |%0.3d %03d %03d %03d %03d %03d %03d %03d|\n"
+            printf("       |%03d %03d %03d %03d %03d %03d %03d %03d|\n"
                 ,data[i],data[i+1],data[i+2],data[i+3],data[i+4],data[i+5]
                 ,data[i+6],data[i+7] );
         } //END if
     } //END for
     
+    printf("\n");
+    
 }//END print_array()
 
 unsigned char find_median(unsigned char * data, int size){
     
-    int rvalue = size%2; //Check if No. of Elemnts in data is even or not
+     unsigned char rvalue = size%2; //Check if No. of elements in data is even or not
     
     if(rvalue == 0){
-        return (int)(data[size/2-1]+data[size/2])/2;
+        return (unsigned char)(data[size/2-1]+data[size/2])/2;
     }else{ //
-        return data[(int)size/2];
+        return data[( unsigned char)size/2];
     }
     
 }//END find_median()
@@ -97,7 +126,7 @@ unsigned char find_mean(unsigned char * data, int size){
 
 unsigned char find_maximum(unsigned char * data, int size){
     
-    char maxValue = data[0]; //Init maxValue
+    unsigned char maxValue = data[0]; //Init maxValue
 
     for( int i = 1 ; i < size ; i++ ){
         if( maxValue < data[i] ) 
@@ -128,7 +157,7 @@ void sort_array(unsigned char * data, int size){
     unsigned char ptr;
     
     for(i = 0; i < size; i++){
-        // Find the index of maximum element in  array
+        // Find the index of maximal element in  array
         max_idx = i; // Init max index to first element in array
         for( j = i+1 ; j < size; j++ ){
           if( data[j] > data[max_idx] ){
